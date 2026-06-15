@@ -32,7 +32,7 @@ body{background:var(--bg);font-family:var(--font-body);color:var(--text);overflo
 img{display:block;max-width:100%;}
 a{color:inherit;text-decoration:none;}
 
-/* Floating WhatsApp - Modern */
+/* Floating WhatsApp */
 .whatsapp-float{
   position:fixed; bottom:25px; right:25px;
   background:linear-gradient(135deg, #25D366, #128C7E);
@@ -134,7 +134,7 @@ a{color:inherit;text-decoration:none;}
 }
 .action-label{font-size:9px; font-weight:700; color:var(--muted); margin-top:6px; display:block; letter-spacing:0.3px;}
 
-/* Hero Section */
+/* Hero Section - Single Column */
 .hero-section{
   margin:20px 5% 0;
   border-radius:var(--radius);
@@ -143,10 +143,10 @@ a{color:inherit;text-decoration:none;}
 }
 .hero-grid{
   display:grid;
-  grid-template-columns:1fr 0.9fr;
-  gap:50px;
+  grid-template-columns:1fr;
+  gap:30px;
   padding:60px 55px;
-  align-items:center;
+  text-align:center;
 }
 .hero-content h1{
   font-family:var(--font-display);
@@ -161,6 +161,9 @@ a{color:inherit;text-decoration:none;}
   font-size:1rem;
   margin-bottom:28px;
   line-height:1.6;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
 }
 .hero-badge{
   display:inline-flex;
@@ -190,11 +193,6 @@ a{color:inherit;text-decoration:none;}
   box-shadow:0 4px 15px rgba(0,0,0,0.2);
 }
 .shop-all-btn:hover{transform:translateY(-4px); box-shadow:0 10px 30px rgba(0,0,0,0.25); background:#FFB300;}
-.hero-image img{
-  width:100%;
-  border-radius:20px;
-  box-shadow:0 25px 45px rgba(0,0,0,0.25);
-}
 
 /* Marquee */
 .marquee-strip{
@@ -308,7 +306,7 @@ a{color:inherit;text-decoration:none;}
 .variant-info-text p{font-size:13px; color:var(--muted);}
 
 /* Products Grid */
-.products-grid, .all-products-grid, .trending-grid{
+.all-products-grid, .trending-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
   gap:28px;
@@ -547,60 +545,32 @@ a{color:inherit;text-decoration:none;}
 }
 .modal-add-btn:hover{background:var(--primary-dark);}
 
-/* Video Section */
-.video-section{
-  margin:60px 5%;
-  border-radius:var(--radius);
-  overflow:hidden;
-  box-shadow:var(--shadow-lg);
-  position:relative;
-}
-.video-container{
-  position:relative;
-  width:100%;
-  padding-bottom:56.25%;
-}
-.video-container video{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.video-overlay{
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.4);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-}
-.play-btn{
-  width:85px;
-  height:85px;
-  background:white;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:all 0.3s;
-  box-shadow:0 0 30px rgba(255,255,255,0.3);
-}
-.play-btn i{font-size:42px; color:var(--primary); margin-left:5px;}
-.play-btn:hover{transform:scale(1.15);}
-
-/* Combined Info Card (2 columns) */
-.info-combined-card{
+/* Combined Info Card */
+.info-card{
   background:var(--white);
   margin:40px 5%;
   border-radius:var(--radius);
   overflow:hidden;
-  box-shadow:var(--shadow);
+  box-shadow:var(--shadow-lg);
   border:1px solid var(--border);
 }
-.info-grid{
+.info-card-header{
+  background:linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  padding:20px 28px;
+  text-align:center;
+}
+.info-card-header h3{
+  color:white;
+  font-family:var(--font-display);
+  font-size:1.5rem;
+  font-weight:800;
+}
+.info-card-header p{
+  color:rgba(255,255,255,0.85);
+  font-size:0.85rem;
+  margin-top:5px;
+}
+.info-two-columns{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:0;
@@ -610,11 +580,11 @@ a{color:inherit;text-decoration:none;}
 }
 .info-col:first-child{
   border-right:1px solid var(--border);
-  background:linear-gradient(135deg, #FAFDF7, #F5F9F0);
+  background:#FAFDF7;
 }
-.info-col h3{
+.info-col h4{
   font-family:var(--font-display);
-  font-size:1.3rem;
+  font-size:1.2rem;
   color:var(--primary);
   margin-bottom:20px;
   display:flex;
@@ -634,15 +604,25 @@ a{color:inherit;text-decoration:none;}
 .info-item small{font-size:0.7rem; color:var(--muted);}
 .delivery-note{
   background:#E8F5E9;
-  padding:12px 16px;
+  padding:14px 18px;
   border-radius:12px;
-  margin-top:16px;
+  margin-top:20px;
   text-align:center;
-  font-size:0.8rem;
+  font-size:0.85rem;
   color:var(--primary-dark);
   font-weight:600;
 }
-.delivery-note i{margin-right:6px;}
+.delivery-note i{margin-right:8px;}
+.directions-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:20px;
+  color:var(--primary);
+  font-weight:700;
+  font-size:0.85rem;
+}
+.directions-link:hover{text-decoration:underline;}
 
 /* Feature Grid */
 .feature-grid{
@@ -674,42 +654,6 @@ a{color:inherit;text-decoration:none;}
 .feature-title{font-weight:800; font-size:1rem; margin-bottom:8px;}
 .feature-desc{font-size:0.75rem; color:var(--muted);}
 
-/* WhatsApp Checkout Bar */
-.whatsapp-checkout-bar{
-  background:linear-gradient(135deg, #25D366, #128C7E);
-  margin:30px 5% 20px;
-  border-radius:60px;
-  padding:16px 28px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:15px;
-  box-shadow:0 8px 25px rgba(37,211,102,0.3);
-}
-.whatsapp-checkout-bar span{
-  color:white;
-  font-weight:700;
-  font-size:0.9rem;
-}
-.whatsapp-checkout-bar strong{
-  font-size:1.1rem;
-}
-.whatsapp-checkout-btn{
-  background:white;
-  color:#25D366;
-  border:none;
-  padding:12px 32px;
-  border-radius:60px;
-  font-weight:800;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  cursor:pointer;
-  transition:0.2s;
-}
-.whatsapp-checkout-btn:hover{transform:scale(1.05); background:#f0f0f0;}
-
 /* Trust Badges */
 .trust-badges{
   display:grid;
@@ -728,6 +672,60 @@ a{color:inherit;text-decoration:none;}
 .trust-badge i{font-size:36px; color:var(--primary);}
 .trust-badge strong{display:block; font-size:0.9rem;}
 .trust-badge p{font-size:0.7rem; color:var(--muted);}
+
+/* Video Section */
+.video-section{
+  margin:50px 5%;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  background:var(--primary-dark);
+}
+.video-container{
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%; /* 16:9 Aspect Ratio */
+  background:#000;
+}
+.video-container video{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.video-overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.4);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+.play-btn{
+  width:70px;
+  height:70px;
+  background:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform 0.2s;
+  box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+.play-btn i{
+  font-size:32px;
+  color:var(--primary);
+  margin-left:4px;
+}
+.play-btn:hover{
+  transform:scale(1.1);
+}
 
 /* Footer */
 .footer{
@@ -875,21 +873,23 @@ a{color:inherit;text-decoration:none;}
 
 /* Responsive */
 @media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr; padding:45px 35px;}
-  .hero-image img{max-width:70%; margin:0 auto;}
+  .hero-grid{padding:45px 30px;}
   .feature-grid{grid-template-columns:repeat(2,1fr);}
   .trust-badges{grid-template-columns:1fr;}
-  .info-grid{grid-template-columns:1fr;}
+  .info-two-columns{grid-template-columns:1fr;}
   .info-col:first-child{border-right:none; border-bottom:1px solid var(--border);}
-  .products-grid,.all-products-grid,.trending-grid{grid-template-columns:repeat(2,1fr); gap:15px;}
+  .all-products-grid,.trending-grid{grid-template-columns:repeat(2,1fr); gap:15px;}
   .category-grid{grid-template-columns:repeat(3,1fr);}
 }
 @media(max-width:600px){
   .search-wrap{display:none;}
   .section-header h2{font-size:1.4rem;}
   .hero-content h1{font-size:1.6rem;}
-  .products-grid,.all-products-grid,.trending-grid{grid-template-columns:1fr;}
-  .whatsapp-checkout-bar{flex-direction:column; text-align:center;}
+  .all-products-grid,.trending-grid{grid-template-columns:1fr;}
+  .feature-grid{grid-template-columns:1fr;}
+  .video-section{margin:30px 4%;}
+  .play-btn{width:55px; height:55px;}
+  .play-btn i{font-size:26px;}
 }
 </style>
 </head>
@@ -947,9 +947,6 @@ a{color:inherit;text-decoration:none;}
         <i class="ph ph-wine"></i> Shop Now
       </button>
     </div>
-    <div class="hero-image">
-      <img src="https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781533678/grab_a_bottle_logo_kfvomw.jpg" alt="Grab a Bottle Store">
-    </div>
   </div>
 </div>
 
@@ -962,8 +959,6 @@ a{color:inherit;text-decoration:none;}
     <span><i class="ph ph-truck"></i> FREE Delivery in Ruaka!</span>
     <span><i class="ph ph-whatsapp-logo"></i> Order on WhatsApp: 0797 401224</span>
     <span><i class="ph ph-seal-check"></i> 100% Authentic Products</span>
-    <span><i class="ph ph-map-pin"></i> Limuru Road, Ruaka Bypass Roundabout</span>
-    <span><i class="ph ph-phone-call"></i> 0797 401224</span>
   </div>
 </div>
 
@@ -988,25 +983,15 @@ a{color:inherit;text-decoration:none;}
 <div class="section-header"><h2>🔥 Trending Now</h2><a href="#">View All →</a></div>
 <div class="trending-grid" id="trendingGrid"></div>
 
-<!-- Video Section -->
-<div class="video-section">
-  <div class="video-container" id="videoContainer">
-    <video id="promoVideo" poster="https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781533678/grab_a_bottle_logo_kfvomw.jpg">
-      <source src="https://res.cloudinary.com/dvqjgbdhp/video/upload/v1781534953/grab_a_bottle_w7iexz.mp4" type="video/mp4">
-    </video>
-    <div class="video-overlay" id="videoOverlay">
-      <div class="play-btn" id="playBtn">
-        <i class="ph ph-play"></i>
-      </div>
-    </div>
+<!-- Combined Info Card -->
+<div class="info-card">
+  <div class="info-card-header">
+    <h3>📍 Store Information</h3>
+    <p>Visit us or order online — We're here 24/7</p>
   </div>
-</div>
-
-<!-- Combined Info Card: Location + Contact + Payment + Delivery (2 Columns) -->
-<div class="info-combined-card">
-  <div class="info-grid">
+  <div class="info-two-columns">
     <div class="info-col">
-      <h3><i class="ph ph-map-pin"></i> Location & Contact</h3>
+      <h4><i class="ph ph-map-pin"></i> Location & Contact</h4>
       <div class="info-item">
         <i class="ph ph-navigation-arrow"></i>
         <div><strong>Limuru road, Ruaka, Bypass Roundabout</strong><small>Nairobi, Kenya</small></div>
@@ -1023,10 +1008,10 @@ a{color:inherit;text-decoration:none;}
         <i class="ph ph-clock"></i>
         <div><strong>Open 24/7</strong><small>Monday - Sunday</small></div>
       </div>
-      <a href="https://maps.google.com/?q=QQVH+MC+Nairobi" target="_blank" style="display:inline-block; margin-top:16px; color:var(--primary); font-weight:700;"><i class="ph ph-navigation-arrow"></i> Get Directions →</a>
+      <a href="https://maps.google.com/?q=QQVH+MC+Nairobi" target="_blank" class="directions-link"><i class="ph ph-navigation-arrow"></i> Get Directions →</a>
     </div>
     <div class="info-col">
-      <h3><i class="ph ph-credit-card"></i> Payment & Delivery</h3>
+      <h4><i class="ph ph-credit-card"></i> Payment & Delivery</h4>
       <div class="info-item">
         <i class="ph ph-device-mobile"></i>
         <div><strong>M-PESA Till Number</strong><small>Available at checkout</small></div>
@@ -1050,7 +1035,7 @@ a{color:inherit;text-decoration:none;}
   </div>
 </div>
 
-<!-- Features Grid -->
+<!-- Feature Grid -->
 <div class="feature-grid">
   <div class="feature-card"><div class="feature-icon"><i class="ph ph-truck"></i></div><div class="feature-title">FREE Delivery in Ruaka</div><div class="feature-desc">Completely free within Ruaka area</div></div>
   <div class="feature-card"><div class="feature-icon"><i class="ph ph-seal-check"></i></div><div class="feature-title">100% Authentic</div><div class="feature-desc">From official distributors</div></div>
@@ -1058,19 +1043,26 @@ a{color:inherit;text-decoration:none;}
   <div class="feature-card"><div class="feature-icon"><i class="ph ph-clock"></i></div><div class="feature-title">24/7 Operations</div><div class="feature-desc">Always open for you</div></div>
 </div>
 
-<!-- WhatsApp Checkout Bar -->
-<div class="whatsapp-checkout-bar">
-  <span><i class="ph ph-whatsapp-logo"></i> <strong>Quick Order via WhatsApp</strong> — Send us your order list and we'll confirm delivery</span>
-  <button class="whatsapp-checkout-btn" onclick="checkoutOnWhatsApp()">
-    <i class="ph ph-whatsapp-logo"></i> Order on WhatsApp
-  </button>
-</div>
-
 <!-- Trust Badges -->
 <div class="trust-badges">
   <div class="trust-badge"><i class="ph ph-check-circle"></i><div><strong>Authenticity Guaranteed</strong><p>All products from official distributors</p></div></div>
   <div class="trust-badge"><i class="ph ph-shield-check"></i><div><strong>Secure Checkout</strong><p>Your data is protected</p></div></div>
   <div class="trust-badge"><i class="ph ph-star"></i><div><strong>Top Rated</strong><p>Rated 4.9/5 by customers</p></div></div>
+</div>
+
+<!-- Video Section -->
+<div class="video-section">
+  <div class="video-container">
+    <video id="promoVideo" poster="https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781533678/grab_a_bottle_logo_kfvomw.jpg" playsinline loop muted>
+      <source src="https://res.cloudinary.com/dvqjgbdhp/video/upload/v1781538221/videoplayback_2_dybomp.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay" id="videoOverlay">
+      <div class="play-btn" id="playBtn">
+        <i class="ph ph-play"></i>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Footer -->
@@ -1149,16 +1141,6 @@ a{color:inherit;text-decoration:none;}
 if(localStorage.getItem('grab_age_confirmed')==='1') document.getElementById('ageGate').style.display='none';
 document.getElementById('ageYesBtn')?.addEventListener('click',()=>{localStorage.setItem('grab_age_confirmed','1');document.getElementById('ageGate').style.display='none';});
 document.getElementById('ageNoBtn')?.addEventListener('click',()=>{document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100vh;color:#1B5E2A;text-align:center;padding:20px;"><h2>You must be 18+ to enter Grab a Bottle.</h2></div>';});
-
-// Video Player
-const video = document.getElementById('promoVideo');
-const overlay = document.getElementById('videoOverlay');
-const playBtn = document.getElementById('playBtn');
-if(video && overlay){
-  playBtn.addEventListener('click',()=>{video.play(); overlay.style.display='none';});
-  video.addEventListener('pause',()=>{if(video.currentTime>0 && !video.ended) overlay.style.display='flex';});
-  video.addEventListener('ended',()=>{overlay.style.display='flex';});
-}
 
 // Cart & State
 let cart = JSON.parse(localStorage.getItem('grab_cart') || '{}');
@@ -1295,6 +1277,30 @@ document.getElementById('categoryGrid').innerHTML = categories.map(c=>`<div clas
 
 function setCategory(cat){currentCategory=cat; renderProducts();}
 document.getElementById('searchInput')?.addEventListener('keyup',(e)=>{currentSearch=e.target.value; renderProducts();});
+
+// Video Player Logic
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.getElementById('promoVideo');
+  const overlay = document.getElementById('videoOverlay');
+  const playBtn = document.getElementById('playBtn');
+  
+  if (video && overlay && playBtn) {
+    playBtn.addEventListener('click', function() {
+      video.play();
+      overlay.style.display = 'none';
+    });
+    
+    video.addEventListener('pause', function() {
+      if (video.currentTime > 0 && !video.ended) {
+        overlay.style.display = 'flex';
+      }
+    });
+    
+    video.addEventListener('ended', function() {
+      overlay.style.display = 'flex';
+    });
+  }
+});
 
 updateCartUI();
 renderProducts();
