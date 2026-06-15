@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>Grab a Bottle — Ruaka's Premium Alcohol Delivery | 24/7 Nairobi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+:root{
+  --primary:#1B5E2A;
+  --primary-dark:#0F4520;
+  --primary-light:#2E7D32;
+  --accent:#FFC107;
+  --accent-dark:#FFB300;
+  --white:#FFFFFF;
+  --bg:#F8FAF5;
+  --bg2:#F0F4EC;
+  --border:#E2E8E0;
+  --text:#1A2E1A;
+  --muted:#5A6E5A;
+  --sale-red:#D32F2F;
+  --success:#2E7D32;
+  --radius:20px;
+  --radius-sm:12px;
+  --shadow:0 4px 20px rgba(0,0,0,0.06);
+  --shadow-lg:0 20px 40px rgba(0,0,0,0.1);
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Inter',-apple-system,sans-serif;
+}
+body{background:var(--bg);font-family:var(--font-body);color:var(--text);overflow-x:hidden;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+
+/* Floating WhatsApp */
+.whatsapp-float{
+  position:fixed; bottom:25px; right:25px; background:#25D366;
+  width:60px; height:60px; border-radius:50%; display:flex;
+  align-items:center; justify-content:center; z-index:1000;
+  box-shadow:0 4px 15px rgba(0,0,0,0.25); transition:0.3s;
+  cursor:pointer;
+}
+.whatsapp-float:hover{transform:scale(1.08);}
+.whatsapp-float i{font-size:32px; color:white;}
+.whatsapp-float .tooltip{
+  position:absolute; right:70px; background:rgba(0,0,0,0.7);
+  color:white; padding:6px 12px; border-radius:20px; font-size:12px;
+  white-space:nowrap; opacity:0; pointer-events:none; transition:0.2s;
+}
+.whatsapp-float:hover .tooltip{opacity:1;}
+
+/* Age Gate */
+.age-gate{
+  position:fixed; inset:0; background:rgba(0,0,0,0.95);
+  display:flex; align-items:center; justify-content:center;
+  z-index:2000;
+}
+.age-gate-card{
+  background:var(--white); border-radius:var(--radius);
+  padding:40px 32px; text-align:center; max-width:400px;
+  border-top:5px solid var(--primary);
+}
+.age-gate-card img{width:80px; margin:0 auto 16px;}
+.age-gate-card h2{font-family:var(--font-display); color:var(--primary);}
+.age-gate-btns{display:flex; gap:12px; margin-top:20px;}
+.age-yes{flex:1; background:var(--primary); color:white; border:none; padding:14px; border-radius:50px; font-weight:700; cursor:pointer;}
+.age-no{flex:1; background:var(--bg2); border:1px solid var(--border); border-radius:50px; font-weight:700; cursor:pointer;}
+
+/* Header */
+.main-header{
+  background:var(--white);
+  padding:16px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  position:sticky;
+  top:0;
+  z-index:200;
+  box-shadow:var(--shadow);
+  flex-wrap:wrap;
+}
+.logo{display:flex; align-items:center; gap:12px;}
+.logo-img{height:52px; width:52px; object-fit:contain; border-radius:12px;}
+.logo-text{
+  font-family:var(--font-display);
+  font-size:1.3rem;
+  font-weight:800;
+  color:var(--primary);
+  letter-spacing:-0.3px;
+}
+.logo-text small{
+  display:block;
+  font-family:var(--font-body);
+  font-size:9px;
+  font-weight:500;
+  color:var(--muted);
+  text-transform:uppercase;
+}
+.search-wrap{flex:1; max-width:450px; position:relative;}
+.search-wrap i{position:absolute; left:16px; top:50%; transform:translateY(-50%); color:var(--muted);}
+.search-wrap input{
+  width:100%; padding:12px 16px 12px 48px;
+  background:var(--bg); border:1.5px solid var(--border);
+  border-radius:60px; font-size:14px; transition:0.2s;
+}
+.search-wrap input:focus{outline:none; border-color:var(--primary); background:white;}
+.header-actions{display:flex; gap:12px;}
+.action-group{text-align:center;}
+.hbtn{
+  width:44px; height:44px; background:var(--bg); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:0.2s; position:relative;
+}
+.hbtn:hover{background:var(--primary); color:white;}
+.hbtn i{font-size:20px; color:var(--primary);}
+.hbtn:hover i{color:white;}
+.cart-count{
+  position:absolute; top:-4px; right:-4px;
+  background:var(--sale-red); color:white; font-size:10px;
+  font-weight:700; width:18px; height:18px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  border:2px solid white;
+}
+.action-label{font-size:9px; font-weight:600; color:var(--muted); margin-top:5px; display:block;}
+
+/* Hero Section */
+.hero-section{
+  margin:20px 5% 0;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  background:linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  padding:50px 48px;
+  align-items:center;
+}
+.hero-content h1{
+  font-family:var(--font-display);
+  font-size:clamp(1.8rem,5vw,3rem);
+  font-weight:900;
+  color:white;
+  line-height:1.2;
+  margin-bottom:16px;
+}
+.hero-content p{
+  color:rgba(255,255,255,0.9);
+  font-size:1rem;
+  margin-bottom:24px;
+  line-height:1.6;
+}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  background:rgba(255,255,255,0.15);
+  padding:10px 20px;
+  border-radius:60px;
+  margin-bottom:24px;
+}
+.hero-badge span{color:white; font-size:0.8rem;}
+.hero-badge i{color:var(--accent); font-size:18px;}
+.shop-all-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--accent);
+  color:var(--primary-dark);
+  padding:14px 36px;
+  border-radius:60px;
+  font-weight:800;
+  transition:0.2s;
+  border:none;
+  cursor:pointer;
+}
+.shop-all-btn:hover{transform:translateY(-3px); box-shadow:0 8px 25px rgba(0,0,0,0.2); background:var(--accent-dark);}
+.hero-image img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* Marquee */
+.marquee-strip{
+  background:var(--primary-light);
+  overflow:hidden;
+  padding:14px 0;
+  margin-top:20px;
+}
+.marquee-content{
+  display:inline-block;
+  animation:marquee 30s linear infinite;
+  white-space:nowrap;
+}
+.marquee-content span{
+  display:inline-block;
+  margin:0 40px;
+  color:white;
+  font-weight:600;
+  font-size:0.85rem;
+}
+.marquee-content i{margin-right:8px;}
+@keyframes marquee{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-50%);}
+}
+.marquee-strip:hover .marquee-content{animation-play-state:paused;}
+
+/* Category Grid */
+.section-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin:48px 5% 24px;
+  border-left:4px solid var(--primary);
+  padding-left:18px;
+}
+.section-header h2{
+  font-family:var(--font-display);
+  font-size:1.8rem;
+  font-weight:800;
+  color:var(--text);
+}
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+  gap:20px;
+  padding:0 5%;
+  margin-bottom:40px;
+}
+.cat-card{
+  background:var(--white);
+  border-radius:var(--radius-sm);
+  text-align:center;
+  padding:20px 12px;
+  border:1px solid var(--border);
+  cursor:pointer;
+  transition:0.25s;
+}
+.cat-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--primary);
+  box-shadow:var(--shadow-lg);
+}
+.cat-img{
+  width:80px;
+  height:80px;
+  object-fit:cover;
+  border-radius:50%;
+  margin:0 auto;
+  border:3px solid var(--bg2);
+}
+.cat-card span{
+  display:block;
+  margin-top:12px;
+  font-weight:700;
+  color:var(--text);
+}
+
+/* Variant Banner */
+.variant-info-banner{
+  background:linear-gradient(135deg, #E8F5E9, #C8E6C9);
+  border-radius:var(--radius-sm);
+  padding:16px 24px;
+  margin:0 5% 32px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.variant-info-icon{
+  background:var(--primary);
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+}
+.variant-info-text strong{color:var(--primary); font-size:14px;}
+
+/* Products Grid */
+.products-grid, .all-products-grid, .trending-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:24px;
+  padding:0 5%;
+  margin-bottom:40px;
+}
+.prod-card{
+  background:var(--white);
+  border-radius:var(--radius-sm);
+  overflow:hidden;
+  transition:0.3s;
+  border:1px solid var(--border);
+  position:relative;
+}
+.prod-card:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--shadow-lg);
+  border-color:var(--primary-light);
+}
+.pc-img-wrap{
+  position:relative;
+  overflow:hidden;
+  background:var(--bg);
+  cursor:pointer;
+}
+.pc-img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  transition:0.3s;
+}
+.prod-card:hover .pc-img{transform:scale(1.05);}
+.discount-circle{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:var(--sale-red);
+  color:white;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:13px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.2);
+}
+.badge-new{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:var(--accent);
+  color:var(--primary-dark);
+  font-size:11px;
+  font-weight:800;
+  padding:4px 14px;
+  border-radius:20px;
+}
+.pc-wishlist{
+  position:absolute;
+  top:12px;
+  right:12px;
+  background:white;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:0.2s;
+  border:1px solid var(--border);
+}
+.pc-wishlist:hover{background:var(--primary);}
+.pc-wishlist:hover i{color:white;}
+.pc-wishlist.wishlisted i{color:var(--sale-red);}
+.pc-body{padding:16px;}
+.pc-name{
+  font-weight:800;
+  font-size:1rem;
+  margin-bottom:4px;
+}
+.pc-vol{
+  display:inline-block;
+  background:var(--bg2);
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:0.7rem;
+  font-weight:600;
+  color:var(--primary);
+  margin:8px 0;
+}
+.pc-price-wrap{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:10px 0;
+}
+.pc-price-old{
+  text-decoration:line-through;
+  font-size:0.8rem;
+  color:var(--muted);
+}
+.pc-price-new{
+  font-weight:900;
+  font-size:1.3rem;
+  color:var(--primary);
+  font-family:var(--font-display);
+}
+.atc-btn{
+  width:100%;
+  background:var(--primary);
+  color:white;
+  border:none;
+  border-radius:60px;
+  padding:12px;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.2s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.atc-btn:hover{background:var(--primary-dark); transform:scale(1.02);}
+
+/* Video Section */
+.video-section{
+  margin:60px 5%;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  background:var(--primary-dark);
+}
+.video-container{
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%;
+}
+.video-container video{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.video-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.play-btn{
+  width:80px;
+  height:80px;
+  background:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:0.2s;
+}
+.play-btn i{font-size:40px; color:var(--primary);}
+.play-btn:hover{transform:scale(1.1);}
+
+/* Location Banner */
+.location-banner{
+  background:var(--white);
+  margin:40px 5%;
+  border-radius:var(--radius);
+  padding:32px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:30px;
+  align-items:center;
+  box-shadow:var(--shadow);
+  border:1px solid var(--border);
+}
+.location-info h3{
+  font-family:var(--font-display);
+  font-size:1.3rem;
+  color:var(--primary);
+  margin-bottom:8px;
+}
+.location-address{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:12px 0;
+  padding:10px 0;
+  border-bottom:1px solid var(--border);
+}
+.location-address i{color:var(--primary); font-size:20px;}
+.directions-btn{
+  background:var(--primary);
+  color:white;
+  padding:14px 32px;
+  border-radius:60px;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  transition:0.2s;
+}
+.directions-btn:hover{background:var(--primary-dark); transform:translateY(-2px);}
+.business-hours{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+  margin-top:16px;
+}
+.hour-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 0;
+}
+.hour-item i{color:var(--primary); font-size:18px;}
+
+/* Features Grid */
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+  margin:40px 5%;
+}
+.feature-card{
+  background:var(--white);
+  border-radius:var(--radius-sm);
+  padding:28px 20px;
+  text-align:center;
+  border:1px solid var(--border);
+  transition:0.2s;
+}
+.feature-card:hover{transform:translateY(-5px); box-shadow:var(--shadow-lg);}
+.feature-icon{
+  width:60px;
+  height:60px;
+  background:var(--bg2);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 16px;
+}
+.feature-icon i{font-size:28px; color:var(--primary);}
+.feature-title{font-weight:800; margin-bottom:8px;}
+.feature-desc{font-size:0.8rem; color:var(--muted);}
+
+/* Trust Badges */
+.trust-badges{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin:40px 5%;
+}
+.trust-badge{
+  background:linear-gradient(135deg, #E8F5E9, #C8E6C9);
+  border-radius:var(--radius-sm);
+  padding:20px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+.trust-badge i{font-size:32px; color:var(--primary);}
+.trust-badge strong{display:block; font-size:0.9rem;}
+.trust-badge p{font-size:0.7rem; color:var(--muted);}
+
+/* Support Grid */
+.support-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+  margin:40px 5%;
+}
+.support-card{
+  background:var(--white);
+  border-radius:var(--radius-sm);
+  border:1px solid var(--border);
+  overflow:hidden;
+}
+.support-card-header{
+  background:var(--bg2);
+  padding:16px 20px;
+  font-weight:800;
+  border-bottom:1px solid var(--border);
+}
+.support-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 20px;
+  border-bottom:1px solid var(--border);
+}
+.support-item:last-child{border-bottom:none;}
+.support-item i{font-size:20px; color:var(--primary); width:28px;}
+.support-item strong{display:block; font-size:0.85rem;}
+.support-item small{font-size:0.7rem; color:var(--muted);}
+
+/* Footer */
+.footer{
+  background:var(--primary-dark);
+  color:rgba(255,255,255,0.85);
+  padding:48px 5% 32px;
+  margin-top:60px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:40px;
+  margin-bottom:40px;
+}
+.footer-col h4{
+  color:white;
+  font-size:1rem;
+  margin-bottom:16px;
+}
+.footer-col p, .footer-col a{
+  display:block;
+  font-size:0.8rem;
+  margin-bottom:10px;
+  color:rgba(255,255,255,0.7);
+}
+.footer-bottom{
+  text-align:center;
+  padding-top:24px;
+  border-top:1px solid rgba(255,255,255,0.15);
+  font-size:0.7rem;
+}
+
+/* Cart Drawer */
+.overlay{
+  position:fixed; inset:0; background:rgba(0,0,0,0.5);
+  z-index:400; opacity:0; pointer-events:none; transition:0.3s;
+}
+.overlay.open{opacity:1; pointer-events:auto;}
+.cart-drawer{
+  position:fixed; bottom:-100%; left:0; right:0;
+  background:white; border-radius:24px 24px 0 0;
+  z-index:500; transition:0.35s;
+  max-height:85vh; overflow-y:auto;
+}
+.cart-drawer.open{bottom:0;}
+.cart-head{padding:18px 22px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between;}
+.cart-close{background:none; border:none; font-size:24px; cursor:pointer;}
+.cart-items{padding:16px 20px;}
+.cart-item{border-bottom:1px solid var(--border); padding:12px 0;}
+.cart-footer{padding:16px 20px 24px; border-top:1px solid var(--border);}
+.cart-total{display:flex; justify-content:space-between; font-weight:800; font-size:1.2rem; margin-bottom:16px;}
+.btn-checkout{
+  width:100%; background:var(--primary); color:white;
+  padding:14px; border:none; border-radius:60px;
+  font-weight:800; cursor:pointer;
+}
+#toast{
+  position:fixed; bottom:100px; left:50%; transform:translateX(-50%);
+  background:var(--text); color:white; padding:12px 24px;
+  border-radius:60px; font-size:0.8rem; opacity:0;
+  transition:0.2s; z-index:600; pointer-events:none;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr; padding:40px 28px;}
+  .hero-image img{max-width:80%; margin:0 auto;}
+  .feature-grid{grid-template-columns:repeat(2,1fr);}
+  .trust-badges{grid-template-columns:1fr;}
+  .support-grid{grid-template-columns:1fr;}
+  .location-banner{grid-template-columns:1fr;}
+  .products-grid,.all-products-grid,.trending-grid{grid-template-columns:repeat(2,1fr); gap:12px;}
+  .category-grid{grid-template-columns:repeat(3,1fr);}
+}
+@media(max-width:600px){
+  .search-wrap{display:none;}
+  .section-header h2{font-size:1.3rem;}
+  .hero-content h1{font-size:1.6rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- Age Gate -->
+<div class="age-gate" id="ageGate">
+  <div class="age-gate-card">
+    <img src="https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781533678/grab_a_bottle_logo_kfvomw.jpg" alt="Grab a Bottle">
+    <h2>Are you 18+?</h2>
+    <p>Grab a Bottle sells alcohol. You must be 18 or older to enter.</p>
+    <div class="age-gate-btns">
+      <button class="age-yes" id="ageYesBtn">Yes, I'm 18+</button>
+      <button class="age-no" id="ageNoBtn">No, I'm under 18</button>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="main-header">
+  <a class="logo" href="#">
+    <img class="logo-img" src="https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781533678/grab_a_bottle_logo_kfvomw.jpg" alt="Grab a Bottle">
+    <div class="logo-text">Grab a Bottle<small>Ruaka's Finest • 24/7</small></div>
+  </a>
+  <div class="search-wrap">
+    <i class="ph ph-magnifying-glass"></i>
+    <input type="text" id="searchInput" placeholder="Search whisky, wine, beer, spirits...">
+  </div>
+  <div class="header-actions">
+    <div class="action-group">
+      <div class="hbtn" onclick="openWishlistModal()"><i class="ph ph-heart"></i></div>
+      <span class="action-label">Wishlist</span>
+    </div>
+    <div class="action-group">
+      <div class="hbtn" onclick="openCartDrawer()">
+        <i class="ph ph-shopping-bag"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </div>
+      <span class="action-label">Cart</span>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="ph ph-storefront"></i>
+        <span>Ruaka, Limuru Road • Open 24/7</span>
+      </div>
+      <h1>Grab a Bottle<br>Delivered to Your Door</h1>
+      <p>Nairobi's premium alcohol delivery service. 100% authentic products, fast delivery, and the best prices in Ruaka. Order now and get your drinks in 30-45 minutes.</p>
+      <button class="shop-all-btn" onclick="document.getElementById('allProductsGrid').scrollIntoView({behavior:'smooth'})">
+        <i class="ph ph-wine"></i> Shop Now
+      </button>
+    </div>
+    <div class="hero-image">
+      <img src="https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781533678/grab_a_bottle_logo_kfvomw.jpg" alt="Grab a Bottle Store">
+    </div>
+  </div>
+</div>
+
+<!-- Marquee -->
+<div class="marquee-strip">
+  <div class="marquee-content">
+    <span><i class="ph ph-map-pin"></i> Limuru Road, Ruaka Bypass Roundabout</span>
+    <span><i class="ph ph-phone-call"></i> 0797 401224</span>
+    <span><i class="ph ph-clock"></i> Open 24 Hours • Every Day</span>
+    <span><i class="ph ph-truck"></i> Free Delivery Over KES 3,000</span>
+    <span><i class="ph ph-whatsapp-logo"></i> Order on WhatsApp: 0797 401224</span>
+    <span><i class="ph ph-seal-check"></i> 100% Authentic Products</span>
+    <span><i class="ph ph-map-pin"></i> Limuru Road, Ruaka Bypass Roundabout</span>
+    <span><i class="ph ph-phone-call"></i> 0797 401224</span>
+    <span><i class="ph ph-clock"></i> Open 24 Hours • Every Day</span>
+  </div>
+</div>
+
+<!-- Categories -->
+<div class="section-header"><h2>Shop by Category</h2><a href="#" onclick="document.getElementById('allProductsGrid').scrollIntoView({behavior:'smooth'})">View All →</a></div>
+<div class="category-grid" id="categoryGrid"></div>
+
+<!-- Variant Banner -->
+<div class="variant-info-banner">
+  <div class="variant-info-icon"><i class="ph ph-arrows-down-up"></i></div>
+  <div class="variant-info-text">
+    <strong>📦 Multiple bottle sizes available</strong>
+    <p>Tap any product to see all sizes — Each size has a different price!</p>
+  </div>
+</div>
+
+<!-- All Products -->
+<div class="section-header"><h2>All Products</h2><a href="#">View All →</a></div>
+<div class="all-products-grid" id="allProductsGrid"></div>
+
+<!-- Trending Section -->
+<div class="section-header"><h2>🔥 Trending Now</h2><a href="#">View All →</a></div>
+<div class="trending-grid" id="trendingGrid"></div>
+
+<!-- Video Section (Supporting Video) -->
+<div class="video-section">
+  <div class="video-container" id="videoContainer">
+    <video id="promoVideo" poster="https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781533678/grab_a_bottle_logo_kfvomw.jpg">
+      <source src="https://res.cloudinary.com/dvqjgbdhp/video/upload/v1781534953/grab_a_bottle_w7iexz.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay" id="videoOverlay">
+      <div class="play-btn" id="playBtn">
+        <i class="ph ph-play"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Location Banner -->
+<div class="location-banner">
+  <div class="location-info">
+    <h3><i class="ph ph-map-pin"></i> Visit Our Store</h3>
+    <div class="location-address">
+      <i class="ph ph-navigation-arrow"></i>
+      <span><strong>Limuru road, Ruaka, Bypass Roundabout, Nairobi</strong></span>
+    </div>
+    <div class="business-hours">
+      <div class="hour-item"><i class="ph ph-clock"></i><div><strong>Open 24/7</strong><br><small>Monday - Sunday</small></div></div>
+      <div class="hour-item"><i class="ph ph-phone-call"></i><div><strong>0797 401224</strong><br><small>Call or WhatsApp</small></div></div>
+    </div>
+  </div>
+  <div>
+    <a href="https://maps.google.com/?q=QQVH+MC+Nairobi" target="_blank" class="directions-btn">
+      <i class="ph ph-navigation-arrow"></i> Get Directions
+    </a>
+  </div>
+</div>
+
+<!-- Features Grid -->
+<div class="feature-grid">
+  <div class="feature-card"><div class="feature-icon"><i class="ph ph-truck"></i></div><div class="feature-title">Fast Delivery</div><div class="feature-desc">30-45 min across Ruaka & Nairobi</div></div>
+  <div class="feature-card"><div class="feature-icon"><i class="ph ph-seal-check"></i></div><div class="feature-title">100% Authentic</div><div class="feature-desc">From official distributors</div></div>
+  <div class="feature-card"><div class="feature-icon"><i class="ph ph-credit-card"></i></div><div class="feature-title">M-PESA & Cash</div><div class="feature-desc">Pay on delivery available</div></div>
+  <div class="feature-card"><div class="feature-icon"><i class="ph ph-whatsapp-logo"></i></div><div class="feature-title">WhatsApp Orders</div><div class="feature-desc">Chat with us anytime</div></div>
+</div>
+
+<!-- Trust Badges -->
+<div class="trust-badges">
+  <div class="trust-badge"><i class="ph ph-check-circle"></i><div><strong>Authenticity Guaranteed</strong><p>All products from official distributors</p></div></div>
+  <div class="trust-badge"><i class="ph ph-shield-check"></i><div><strong>Secure Checkout</strong><p>Your data is protected</p></div></div>
+  <div class="trust-badge"><i class="ph ph-star"></i><div><strong>Top Rated</strong><p>Rated 4.9/5 by customers</p></div></div>
+</div>
+
+<!-- Support Cards -->
+<div class="support-grid">
+  <div class="support-card">
+    <div class="support-card-header">📍 Location & Contact</div>
+    <div class="support-card-body">
+      <div class="support-item"><i class="ph ph-map-pin"></i><div><strong>Limuru road, Ruaka, Bypass Roundabout</strong><small>Nairobi, Kenya</small></div></div>
+      <div class="support-item"><i class="ph ph-phone-call"></i><div><strong>0797 401224</strong><small>Call for orders</small></div></div>
+      <div class="support-item"><i class="ph ph-whatsapp-logo"></i><div><strong>0797 401224 (WhatsApp)</strong><small>Order via WhatsApp</small></div></div>
+      <div class="support-item"><i class="ph ph-clock"></i><div><strong>24/7 Operations</strong><small>Open every day</small></div></div>
+    </div>
+  </div>
+  <div class="support-card">
+    <div class="support-card-header">💰 Payment & Delivery</div>
+    <div class="support-card-body">
+      <div class="support-item"><i class="ph ph-device-mobile"></i><div><strong>M-PESA Till Number</strong><small>Ask at checkout</small></div></div>
+      <div class="support-item"><i class="ph ph-cash"></i><div><strong>Cash on Delivery</strong><small>Pay when you receive</small></div></div>
+      <div class="support-item"><i class="ph ph-truck"></i><div><strong>Delivery Fee: KES 150</strong><small>Free over KES 3,000</small></div></div>
+      <div class="support-item"><i class="ph ph-storefront"></i><div><strong>Pickup Available</strong><small>Visit our store</small></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Grab a Bottle</h4>
+      <p>Ruaka's Finest Alcohol Delivery</p>
+      <p>Premium spirits, wines & beers</p>
+      <p>100% Authentic Products</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#">Home</a>
+      <a href="#">Shop All</a>
+      <a href="#">Track Order</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>📞 0797 401224</p>
+      <p>💬 WhatsApp: 0797 401224</p>
+      <p>📍 Limuru Road, Ruaka</p>
+    </div>
+    <div class="footer-col">
+      <h4>Hours</h4>
+      <p>Monday - Sunday: 24/7</p>
+      <p>Always Open</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Grab a Bottle — Ruaka's Premium Alcohol Delivery</p>
+    <p>Over 18 only. Drink responsibly.</p>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/254797401224?text=I%20want%20to%20place%20an%20order" class="whatsapp-float" target="_blank">
+  <i class="ph ph-whatsapp-logo"></i>
+  <span class="tooltip">Order on WhatsApp</span>
+</a>
+
+<!-- Cart Drawer -->
+<div class="overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <span>Your Basket</span>
+    <button class="cart-close" onclick="closeCartDrawer()"><i class="ph ph-x"></i></button>
+  </div>
+  <div class="cart-items" id="cartItemsList"><div style="text-align:center;padding:40px;">Your basket is empty</div></div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total"><span>Total</span><span id="cartTotalAmount">KES 0</span></div>
+    <button class="btn-checkout" onclick="checkout()">Proceed to Checkout →</button>
+  </div>
+</div>
+<div id="toast"></div>
+
+<script>
+// Age Gate
+if(localStorage.getItem('grab_age_confirmed')==='1') document.getElementById('ageGate').style.display='none';
+document.getElementById('ageYesBtn')?.addEventListener('click',()=>{localStorage.setItem('grab_age_confirmed','1');document.getElementById('ageGate').style.display='none';});
+document.getElementById('ageNoBtn')?.addEventListener('click',()=>{document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100vh;color:#1B5E2A;"><h2>You must be 18+ to enter Grab a Bottle.</h2></div>';});
+
+// Video Player
+const video = document.getElementById('promoVideo');
+const overlay = document.getElementById('videoOverlay');
+const playBtn = document.getElementById('playBtn');
+if(video && overlay){
+  playBtn.addEventListener('click',()=>{
+    video.play();
+    overlay.style.display='none';
+  });
+  video.addEventListener('pause',()=>{if(video.currentTime>0 && !video.ended){overlay.style.display='flex';}});
+  video.addEventListener('ended',()=>{overlay.style.display='flex';});
+}
+
+// Cart & State
+let cart = JSON.parse(localStorage.getItem('grab_cart') || '{}');
+let wishlist = JSON.parse(localStorage.getItem('grab_wishlist') || '[]');
+let recentlyViewed = JSON.parse(localStorage.getItem('grab_rv') || '[]');
+
+// Product Database (35+ products)
+const PRODUCTS = [
+  {id:"p1", name:"Konyagi (Tanzania)", category:"vodka", image:"https://i.postimg.cc/LsJKLjjH/kontags.jpg", isNew:false, isTrending:true, variants:[{size:"350ml",price:450},{size:"750ml",price:800}], description:"Tanzania's famous cane spirit. Smooth, slightly sweet."},
+  {id:"p2", name:"Chrome Gin", category:"gin", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781273803/chrome-gin-750ml_pjpgi8.jpg", isNew:false, isTrending:true, variants:[{size:"250ml",price:260},{size:"750ml",price:750}], description:"Contemporary African gin with unique botanical blend."},
+  {id:"p3", name:"Tusker Lager", category:"beer", image:"https://i.postimg.cc/9XNRvg3g/TUSKERLAGERBOTTLE500ML.webp", isNew:false, isTrending:true, variants:[{size:"500ml",price:350}], description:"Kenya's iconic premium lager."},
+  {id:"p4", name:"Jameson Irish Whisky", category:"whisky", image:"https://i.postimg.cc/qRxcssz3/jameson.jpg", isNew:false, isTrending:true, variants:[{size:"750ml",price:3200}], description:"Smooth triple-distilled Irish whiskey."},
+  {id:"p5", name:"Johnnie Walker Black Label", category:"whisky", image:"https://i.postimg.cc/0yzhN3FK/Johnie-walker-black-label.jpg", isNew:false, isTrending:true, variants:[{size:"750ml",price:3500}], description:"Iconic blended Scotch whisky."},
+  {id:"p6", name:"Hennessy XO", category:"cognac", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781273428/2205500339_1_b_rawi81.jpg", isNew:true, isTrending:false, variants:[{size:"750ml",price:5500},{size:"1L",price:24000}], description:"Extra Old cognac, exceptionally smooth."},
+  {id:"p7", name:"Smirnoff Red Vodka", category:"vodka", image:"https://i.postimg.cc/VLrnYR6K/Greenspoon-Kenya-Smirnoff-Vodka-2-1400x933.webp", isNew:false, isTrending:true, variants:[{size:"250ml",price:500},{size:"350ml",price:650},{size:"750ml",price:1100}], description:"World's best-selling vodka."},
+  {id:"p8", name:"Gilbeys Gin", category:"gin", image:"https://i.postimg.cc/4nkJX9Qn/Greenspoon-Kenya-Gilbeys-Gin-750ml-4.jpg", isNew:false, isTrending:false, variants:[{size:"350ml",price:600},{size:"750ml",price:1400}], description:"Classic London dry gin."},
+  {id:"p9", name:"Absolut Vodka", category:"vodka", image:"https://i.postimg.cc/1twFB9db/absolut-vodka.jpg", isNew:true, isTrending:true, variants:[{size:"350ml",price:1300},{size:"750ml",price:2200}], description:"Swedish premium vodka."},
+  {id:"p10", name:"Kenya Cane Ginger", category:"vodka", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1780401818/cane-1_izoutd.jpg", isNew:false, isTrending:true, variants:[{size:"250ml",price:400},{size:"750ml",price:700}], description:"Ginger-infused cane spirit."},
+  {id:"p11", name:"Tusker Lite", category:"beer", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781207144/Tusker-Lite-300ml-Beer_lqgxya.jpg", isNew:false, isTrending:true, variants:[{size:"250ml",price:160}], description:"Light lager with fewer calories."},
+  {id:"p12", name:"Summit Lager", category:"beer", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781206325/summit-lager_noitn5.jpg", isNew:false, isTrending:false, variants:[{size:"330ml",price:140},{size:"500ml",price:200}], description:"Smooth, easy-drinking lager."},
+  {id:"p13", name:"Guinness Foreign Extra", category:"beer", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781259486/TB_s1_22-guiness-600_auwkx1.jpg", isNew:true, isTrending:false, variants:[{size:"330ml",price:200},{size:"500ml",price:280},{size:"1L",price:520}], description:"Rich, creamy stout."},
+  {id:"p14", name:"Heineken Lager", category:"beer", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781259773/000974__56124.1651683990.1280.1280_pu6xow.jpg", isNew:false, isTrending:true, variants:[{size:"330ml",price:220},{size:"500ml",price:320}], description:"World-famous premium lager."},
+  {id:"p15", name:"Bells Scotch Whisky", category:"whisky", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781269639/ba16869ca44e95a39bcb3af1a23baad8_nnkapv.jpg", isNew:false, isTrending:false, variants:[{size:"200ml",price:750},{size:"350ml",price:1200},{size:"750ml",price:2200}], description:"Smooth blended Scotch whisky."},
+  {id:"p16", name:"Teacher's Highland Cream", category:"whisky", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781269788/zi4lsu52gcr61_kukmdv.jpg", isNew:false, isTrending:false, variants:[{size:"200ml",price:850},{size:"750ml",price:2400}], description:"Highland malt blended Scotch."},
+  {id:"p17", name:"White Horse Whisky", category:"whisky", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781269956/416_1_ea1fn6.jpg", isNew:false, isTrending:false, variants:[{size:"200ml",price:720},{size:"750ml",price:2100}], description:"Classic blended Scotch whisky."},
+  {id:"p18", name:"Grant's Whisky", category:"whisky", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781270700/8366410104-1-1_wml0by.jpg", isNew:false, isTrending:false, variants:[{size:"350ml",price:1000},{size:"750ml",price:1900}], description:"Smooth, honeyed blended Scotch."},
+  {id:"p19", name:"Russian Standard Vodka", category:"vodka", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781270892/russian-standard-vodka-306495_d4kff2.jpg", isNew:true, isTrending:false, variants:[{size:"350ml",price:900},{size:"750ml",price:1800}], description:"Authentic Russian vodka."},
+  {id:"p20", name:"Kenya Cane Original", category:"vodka", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781271194/Kenya_Cane_750ml_izmorj.jpg", isNew:false, isTrending:true, variants:[{size:"250ml",price:300},{size:"750ml",price:850}], description:"Kenya's most popular local cane spirit."},
+  {id:"p21", name:"Ciroc Vodka", category:"vodka", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781271841/CIROC-Ultra-Premium-Vodka-750-mL-40-ABV_3facb340-144c-4c38-975a-93045dc45a0b.fa62641b5bba2b794c861b17093020c4_qxrijn.jpg", isNew:true, isTrending:true, variants:[{size:"350ml",price:1800},{size:"750ml",price:3500}], description:"French vodka made from grapes."},
+  {id:"p22", name:"Kenya Cane Pineapple", category:"vodka", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781272054/Kenya_Cane_Pineapple_750ml_zlu9mo.jpg", isNew:true, isTrending:false, variants:[{size:"250ml",price:400},{size:"750ml",price:1000}], description:"Pineapple-infused cane spirit."},
+  {id:"p23", name:"Remy Martin VSOP", category:"cognac", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781272437/remy-martin-vsop-300-year-anniversary-cognac_RoyalBatch_Fo5YMCyCqg6F_zmgdrq.jpg", isNew:true, isTrending:false, variants:[{size:"350ml",price:3800},{size:"750ml",price:7800}], description:"Very Superior Old Pale cognac."},
+  {id:"p24", name:"Martell VSOP", category:"cognac", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781272788/martell-vsop-cognac_gwnz9u.jpg", isNew:true, isTrending:false, variants:[{size:"350ml",price:3500},{size:"750ml",price:7000}], description:"Aged cognac, smooth and elegant."},
+  {id:"p25", name:"Hennessy VSOP", category:"cognac", image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1781272980/Hennessy_VSOP_Privilege_Cognac_Worlds_Favorite_VSOP_60_Eaux_de_Vie_Four_Crus_Limousin_Oak_40_ABV_80_Proof_750ml_grande_oegaq8.jpg", isNew:true, isTrending:false, variants:[{size:"350ml",price:4500},{size:"750ml",price:9800}], description:"World's favorite VSOP cognac."}
+];
+
+// Process products with default variant
+const processedProducts = PRODUCTS.map(p => {
+  const sortedVariants = [...p.variants].sort((a,b) => a.price - b.price);
+  const defaultVar = sortedVariants[0];
+  return {
+    ...p,
+    id: p.id,
+    capacity: defaultVar.size,
+    price: defaultVar.price,
+    discountPercent: 0,
+    originalPrice: defaultVar.price,
+    allVariants: p.variants
+  };
+});
+
+function escapeHtml(str){return str?String(str).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m]):'';}
+function toast(msg){const t=document.getElementById('toast');t.innerText=msg;t.style.opacity='1';setTimeout(()=>t.style.opacity='0',2500);}
+function checkout(){window.location.href='checkout.html';}
+
+function updateCartUI(){
+  const items = Object.values(cart);
+  const count = items.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cartCount').innerText = count;
+  const container = document.getElementById('cartItemsList');
+  const footer = document.getElementById('cartFooter');
+  if(!items.length){ container.innerHTML='<div style="text-align:center;padding:40px;">Your basket is empty</div>'; footer.style.display='none'; return; }
+  footer.style.display='block';
+  const subtotal = items.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('cartTotalAmount').innerHTML = `KES ${subtotal.toLocaleString()}`;
+  container.innerHTML = items.map(item=>`<div class="cart-item"><div><strong>${escapeHtml(item.name)}</strong> x${item.qty} (${item.capacity})</div><div>KES ${(item.price*item.qty).toLocaleString()}</div><div style="display:flex; gap:8px; margin-top:8px;"><button onclick="updateQty('${item.id}',-1)" style="background:#eee; border:none; border-radius:20px; padding:4px 12px;">−</button><span>${item.qty}</span><button onclick="updateQty('${item.id}',1)" style="background:#eee; border:none; border-radius:20px; padding:4px 12px;">+</button><button onclick="removeCartItem('${item.id}')" style="background:#dc3545; color:white; border:none; border-radius:6px; padding:4px 10px; cursor:pointer;">Remove</button></div></div>`).join('');
+}
+function updateQty(id,delta){ if(cart[id]){ cart[id].qty+=delta; if(cart[id].qty<=0) delete cart[id]; localStorage.setItem('grab_cart',JSON.stringify(cart)); updateCartUI(); } }
+function removeCartItem(id){ if(cart[id]){ delete cart[id]; localStorage.setItem('grab_cart',JSON.stringify(cart)); updateCartUI(); toast('Item removed'); } }
+function addToCart(id,name,price,capacity){ if(cart[id]) cart[id].qty+=1; else cart[id]={id,name,price,qty:1,capacity}; localStorage.setItem('grab_cart',JSON.stringify(cart)); updateCartUI(); toast(`${name} (${capacity}) added to basket`); }
+function toggleWishlist(id,name,price,image,capacity){ const idx=wishlist.findIndex(w=>w.id==id); if(idx>-1) wishlist.splice(idx,1); else wishlist.push({id,name,price,image,capacity}); localStorage.setItem('grab_wishlist',JSON.stringify(wishlist)); renderProducts(); toast(idx>-1?'Removed from wishlist':'Added to wishlist ♥'); }
+function openCartDrawer(){ document.getElementById('cartDrawer').classList.add('open'); document.getElementById('cartOverlay').classList.add('open'); }
+function closeCartDrawer(){ document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('cartOverlay').classList.remove('open'); }
+function openWishlistModal(){ alert('Wishlist feature coming soon!'); }
+
+let currentSearch = '';
+let currentCategory = 'all';
+
+function renderProducts(){
+  let filtered = processedProducts.filter(p => currentCategory==='all' || p.category===currentCategory);
+  if(currentSearch) filtered = filtered.filter(p => p.name.toLowerCase().includes(currentSearch.toLowerCase()));
+  
+  const allHtml = filtered.slice(0,12).map(p => {
+    const isWishlisted = wishlist.some(w=>w.id==p.id);
+    return `<div class="prod-card"><div class="pc-img-wrap" onclick="addToCart('${p.id}','${escapeHtml(p.name).replace(/'/g,"\\'")}',${p.price},'${p.capacity}')"><img class="pc-img" src="${p.image}" onerror="this.src='https://i.postimg.cc/LsJKLjjH/kontags.jpg'"><button class="pc-wishlist ${isWishlisted?'wishlisted':''}" onclick="event.stopPropagation();toggleWishlist('${p.id}','${escapeHtml(p.name).replace(/'/g,"\\'")}',${p.price},'${p.image}','${p.capacity}')"><i class="ph ${isWishlisted?'ph-heart-fill':'ph-heart'}"></i></button></div><div class="pc-body"><div class="pc-name">${escapeHtml(p.name)}</div><div class="pc-vol">${p.capacity}</div><div class="pc-price-wrap"><span class="pc-price-new">KES ${p.price.toLocaleString()}</span></div><button class="atc-btn" onclick="addToCart('${p.id}','${escapeHtml(p.name).replace(/'/g,"\\'")}',${p.price},'${p.capacity}')"><i class="ph ph-plus"></i> Add to Basket</button></div></div>`;
+  }).join('');
+  
+  const trending = processedProducts.filter(p=>p.isTrending===true).slice(0,8);
+  const trendingHtml = trending.map(p=>{
+    const isWishlisted = wishlist.some(w=>w.id==p.id);
+    return `<div class="prod-card"><div class="pc-img-wrap" onclick="addToCart('${p.id}','${escapeHtml(p.name).replace(/'/g,"\\'")}',${p.price},'${p.capacity}')"><img class="pc-img" src="${p.image}" onerror="this.src='https://i.postimg.cc/LsJKLjjH/kontags.jpg'"><div class="discount-circle">HOT</div><button class="pc-wishlist ${isWishlisted?'wishlisted':''}" onclick="event.stopPropagation();toggleWishlist('${p.id}','${escapeHtml(p.name).replace(/'/g,"\\'")}',${p.price},'${p.image}','${p.capacity}')"><i class="ph ${isWishlisted?'ph-heart-fill':'ph-heart'}"></i></button></div><div class="pc-body"><div class="pc-name">${escapeHtml(p.name)}</div><div class="pc-vol">${p.capacity}</div><div class="pc-price-wrap"><span class="pc-price-new">KES ${p.price.toLocaleString()}</span></div><button class="atc-btn" onclick="addToCart('${p.id}','${escapeHtml(p.name).replace(/'/g,"\\'")}',${p.price},'${p.capacity}')"><i class="ph ph-plus"></i> Add to Basket</button></div></div>`;
+  }).join('');
+  
+  document.getElementById('allProductsGrid').innerHTML = allHtml || '<div style="text-align:center;padding:40px;">No products found</div>';
+  document.getElementById('trendingGrid').innerHTML = trendingHtml || '<div style="text-align:center;padding:40px;">No trending products</div>';
+}
+
+const categories = [
+  {name:"All",cat:"all",image:"https://res.cloudinary.com/dvqjgbdhp/image/upload/v1780993625/657accd01c84e92bc33b13a7_o0ywrd.jpg"},
+  {name:"Whisky",cat:"whisky",image:"https://i.postimg.cc/HncvZNLf/ah-U-types-of-whisky.webp"},
+  {name:"Cognac",cat:"cognac",image:"https://i.postimg.cc/W1qvx9dw/cognacs.webp"},
+  {name:"Vodka",cat:"vodka",image:"https://i.postimg.cc/xTQFy62P/vodk-AS.jpg"},
+  {name:"Gin",cat:"gin",image:"https://i.postimg.cc/ZqmMjjpn/champagne.jpg"},
+  {name:"Beer",cat:"beer",image:"https://i.postimg.cc/FRkMf1Qy/beer-cans.webp"}
+];
+document.getElementById('categoryGrid').innerHTML = categories.map(c=>`<div class="cat-card" onclick="setCategory('${c.cat}')"><img class="cat-img" src="${c.image}"><span>${c.name}</span></div>`).join('');
+
+function setCategory(cat){ currentCategory = cat; renderProducts(); }
+
+document.getElementById('searchInput')?.addEventListener('keyup',(e)=>{currentSearch=e.target.value; renderProducts();});
+
+updateCartUI();
+renderProducts();
+</script>
+</body>
+</html>
